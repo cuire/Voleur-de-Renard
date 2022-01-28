@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "GravityBody2D",
+"language": "GDScript",
+"path": "res://characters/base/gravity_body.gd"
+} ]
+_global_script_class_icons={
+"GravityBody2D": ""
+}
+
 [application]
 
 config/name="Voleur de Renard"
@@ -41,6 +51,7 @@ texture={
 [physics]
 
 common/enable_pause_aware_picking=true
+2d/default_gravity=900
 
 [rendering]
 
