@@ -12,6 +12,7 @@ GGJ 2022 project
 
 ### Kingdom scene
 - [x] repeatable road tile
+- [x] background
 - [ ] finish point
 - [ ] Tilemap FG objects
 
