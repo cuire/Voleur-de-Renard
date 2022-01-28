@@ -5,8 +5,8 @@ GGJ 2022 project
 
 
 ### Prince script and scene
-- [ ] movement and collisions
-- [ ] scene setup
+- [x] movement and collisions
+- [x] scene setup
 - [ ] score counter
 - [ ] animations
 
