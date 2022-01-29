@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/assets/Menu-3.png" type="Texture" id=2]
+
+[node name="Briefing" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Background"]
+anchor_left = 0.113
+anchor_top = 0.204
+anchor_right = 0.886
+anchor_bottom = 0.799
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Background/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Background/Control/CenterContainer"]
+margin_left = 83.0
+margin_right = 708.0
+margin_bottom = 1237.0
+text = "Весь свет надвое поделён:
+Ты иль богат, иль беден в нём.
+Бедняк здесь, чтоб богатым стать,
+Богатых должен обирать.
+
+Я сам когда-то спал в шелках,
+Жил во дворце, ел на балах,
+Но тосковал, хотел я воли.
+И вот я вор, и ты со мною.
+
+А по дорожке принц идёт:
+Монеты есть и нет забот.
+Но он так мил. Я не могу
+Его наивность обмануть. 
+
+Пусть лучше он потратит сам
+Всё до копейки, ну а там
+Вернётся с миром в свой дворец.
+Где ждёт его златой венец. 
+
+Одну монетку он отдаст
+Гадалке Пифии. Как раз
+Она о принце знает всё.
+Но нужно разбудить её.
+
+Монеток пять пусть он потратит,
+В моём торговом автомате.
+Потянешь за рычаг ― отрада:
+Ему вкусняшка, мне награда.
+
+На выпечку монеток десять
+Потратит принц, если заметит
+Со старой вывеской ларёк ―
+Часть букв там задом наперёд.
+
+Принц хочет во дворец уйти.
+Расставим на его пути
+Ловушки, наших денег талисманы.
+Богатый, выворачивай карманы!
+"
+align = 1

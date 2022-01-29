@@ -37,15 +37,15 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Background/Control/CenterContainer"]
-margin_left = 273.0
-margin_top = 75.0
-margin_right = 518.0
-margin_bottom = 282.0
-text = "брбрбрбрбрбрбр
-брбрбрбр
-брбрбр
-брбрбрбр
-брбрбр
-брбрбрбр
-брбрбр"
+margin_left = 104.0
+margin_top = 71.0
+margin_right = 687.0
+margin_bottom = 285.0
+text = "Свои богатства принц унёс,
+Утёр он нам с тобою нос.
+А впрочем, хватит унывать,
+Ещё, кого обворовать,
+Найдём легко, ведь, как известно,
+Богатых много в королевстве.
+"
 align = 1

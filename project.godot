@@ -30,6 +30,10 @@ config/name="Voleur de Renard"
 run/main_scene="res://scenes/main_menu/menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [display]
 
 mouse_cursor/custom_image="res://cursor.png"

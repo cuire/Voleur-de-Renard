@@ -1,5 +1,7 @@
 extends Control
 
+var globals = get_node("/root/global")
+
 func _ready():
 	pass # Replace with function body.
 
@@ -23,6 +25,9 @@ func _on_ButtonMedium_pressed():
 
 
 func setup_easy_game():
+	global.current_difficulty = Difficulty.EASY
+	 #current_difficulty = Difficulty.EASY
+	get_tree().change_scene("res://scenes/main_briefing/briefing.tscn")
 	print("Starting up easy difficulty")
 	
 func setup_medium_game():

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/assets/background.png" type="Texture" id=1]
+[ext_resource path="res://scenes/assets/tile_1.png" type="Texture" id=2]
+[ext_resource path="res://scenes/assets/tile_3.png" type="Texture" id=3]
+
+[node name="CurrentFrame" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 0.681304, 0.605714 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1503.79, 350.969 )
+
+[node name="RoadTile" type="Sprite" parent="."]
+position = Vector2( 1, 213 )
+scale = Vector2( 0.565434, 0.590909 )
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, -104.337, 922.772, 651.746 )
+
+[node name="RoadTile2" type="Sprite" parent="."]
+position = Vector2( 340, 212 )
+scale = Vector2( 0.388249, 0.489415 )
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 4.5249, 6.21283, 864.172, 802.013 )
