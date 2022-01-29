@@ -6,6 +6,7 @@ onready var prince = $Prince
 onready var counter = $Control/MoneyCounter
 onready var viewport_size: float = get_viewport().size.x
 var current_position: float = 0
+onready var timer = get_node("Timer")
 
 var bakery = preload("res://minigames/bakery/bakery.tscn")
 
@@ -38,6 +39,14 @@ func add_obstacle(frame: Node2D, obstacle: Minigame):
 func _ready():
 	var _money_status = prince.connect("signal_lost_money", self, "_update_counter")
 	counter._settext(prince._money)
+	if Global.current_difficulty:
+		timer.set_wait_time(Global.TIME_TO_STEAL)
+		#timer.set_wait_time(1)
+		timer.start()
 	
 func _update_counter():
 	counter._settext(prince._money)
+	
+func _on_Timer_timeout():
+	timer.stop()
+	print("timeout")

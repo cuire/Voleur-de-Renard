@@ -1,10 +1,12 @@
 extends Node
 
-enum Difficulty {EASY, MEDIUM}
 
-var current_difficulty = Difficulty.MEDIUM
+var current_difficulty = true
+var TIME_TO_STEAL = 90
+# false == easy
+# true == medium
 
 func _ready():
-	pass # Replace with function body.
+	current_difficulty = true
 
 
