@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://characters/prince/prince.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/assets/road_tile.png" type="Texture" id=2]
 [ext_resource path="res://scenes/assets/background.png" type="Texture" id=3]
 [ext_resource path="res://scenes/main_location/kingdom.gd" type="Script" id=4]
+[ext_resource path="res://minigames/pull_the_handle/vending_machine.tscn" type="PackedScene" id=5]
+[ext_resource path="res://minigames/bakery/bakery.tscn" type="PackedScene" id=6]
 
 [node name="Kingdom" type="Node2D"]
 script = ExtResource( 4 )
-velocity = -400.0
+velocity = -150.0
 
 [node name="CurrentFrame" type="Node2D" parent="."]
 __meta__ = {
@@ -20,6 +22,12 @@ texture = ExtResource( 3 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1089.78, 581.388 )
+
+[node name="Bakery" parent="CurrentFrame" instance=ExtResource( 6 )]
+position = Vector2( 410, 278 )
+
+[node name="VendingMachine" parent="CurrentFrame" instance=ExtResource( 5 )]
+position = Vector2( 767, 392 )
 
 [node name="Road" type="StaticBody2D" parent="CurrentFrame"]
 position = Vector2( 2, 469 )
