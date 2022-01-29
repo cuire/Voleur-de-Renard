@@ -21,4 +21,8 @@ func check_symbols():
 	for symbol in symbols:
 		if get_node(symbol).is_flipped:
 			return
-	print("bakery activated")
+	activate()
+
+func activate():
+	.activate()
+	print("Bakery Is moving. Bakery is growing")

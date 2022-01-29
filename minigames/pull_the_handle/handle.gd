@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Minigame
 
 var _velocity = Vector2.ZERO
 var is_moving: bool = false
@@ -19,6 +19,6 @@ func _on_Handle_input_event(_viewport: Node, event: InputEvent, _shape_idx: int)
 		is_moving = event.pressed
 
 func drop_candy():
-	# steel some money
-	print("ASDSAD")
+	activate()
+	print("YOU drop that candy, that means you must pay for it")
 	set_physics_process(false)
