@@ -7,7 +7,7 @@
 
 [node name="Kingdom" type="Node2D"]
 script = ExtResource( 4 )
-velocity = -10.0
+velocity = -800.0
 
 [node name="CurrentFrame" type="Node2D" parent="."]
 __meta__ = {
