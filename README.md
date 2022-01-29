@@ -18,14 +18,17 @@ GGJ 2022 project
 
 ### User abilities
 
-- wip
+- [ ] vending machine
+- [ ] bakery
+- [ ] easy click obstacle
 
 ### Main menu
-- [ ] menu scenes
-- [ ] top score submenu
-- [ ] play button with difficulty selector
-- [ ] exit button with
+- [x] menu scenes
+- [x] play button with difficulty selector
+- [x] exit button with
 
-### Optional
-- [ ] compatobility with touchscreen
-- [ ] android build
+
+### Polish
+- [ ] main meny music and art
+- [ ] kingdom music and art
+- [ ] click noises

@@ -3,7 +3,7 @@ extends Node2D
 onready var current_frame = $CurrentFrame
 onready var next_frame = $NextFrame
 onready var viewport_size: float = get_viewport().size.x
-var current_position : int = 0
+var current_position: float = 0
 
 const DIRECTION: int = -1
 export var velocity: float = 1.5 * DIRECTION
