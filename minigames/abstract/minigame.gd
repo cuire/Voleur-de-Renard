@@ -1,7 +1,7 @@
 extends Node2D
 class_name Minigame
 
-export var money_to_steal: int = 0
+export var money_to_steal: int = 1
 signal steal_money(amount, sender)
 
 func activate():

@@ -3,6 +3,7 @@ extends Node2D
 onready var current_frame = $CurrentFrame
 onready var next_frame = $NextFrame
 onready var prince = $Prince
+onready var counter = $Control/MoneyCounter
 onready var viewport_size: float = get_viewport().size.x
 var current_position: float = 0
 
@@ -31,3 +32,10 @@ func add_obstacle(frame: Node2D, obstacle: Minigame):
 	print("Added")
 	var _status = obstacle.connect("steal_money", prince, "_on_Steal_Money")
 	frame.add_child(obstacle)
+
+func _ready():
+	var _money_status = prince.connect("signal_lost_money",counter,"_update_counter")
+	counter._settext(prince._money)
+	
+func _update_counter():
+	counter._settext(prince._money)
