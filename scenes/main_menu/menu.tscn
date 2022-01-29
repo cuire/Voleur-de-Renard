@@ -35,17 +35,17 @@ __meta__ = {
 }
 
 [node name="ButtonNewGame" type="Button" parent="VBoxContainer"]
-margin_top = 120.0
+margin_top = 95.0
 margin_right = 306.0
 margin_bottom = 170.0
-rect_min_size = Vector2( 0, 50 )
+rect_min_size = Vector2( 0, 75 )
 text = "Начать игру"
 
 [node name="ButtonExit" type="Button" parent="VBoxContainer"]
 margin_top = 190.0
 margin_right = 306.0
-margin_bottom = 240.0
-rect_min_size = Vector2( 0, 50 )
+margin_bottom = 265.0
+rect_min_size = Vector2( 0, 75 )
 text = "Выход"
 
 [node name="Control" type="Control" parent="."]
