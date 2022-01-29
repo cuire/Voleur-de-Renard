@@ -11,7 +11,7 @@ script = ExtResource( 6 )
 money_to_steal = 5
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 127, 101 )
+position = Vector2( 7, -100 )
 scale = Vector2( 0.502105, 0.502105 )
 texture = ExtResource( 1 )
 
