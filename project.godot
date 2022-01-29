@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Voleur de Renard"
-run/main_scene="res://scenes/main_location/kingdom.tscn"
+run/main_scene="res://scenes/main_menu/menu.tscn"
 config/icon="res://icon.png"
 
 [display]
