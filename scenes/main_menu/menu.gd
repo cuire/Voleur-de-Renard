@@ -12,3 +12,7 @@ func _on_ButtonNewGame_pressed():
 
 func _on_ButtonExit_pressed():
 	get_tree().quit()
+
+
+#func _on_ButtonSound_pressed():
+#	AudioServer.set_bus_volume_db()

@@ -35,6 +35,14 @@ config/icon="res://icon.png"
 mouse_cursor/custom_image="res://cursor.png"
 mouse_cursor/custom_image_hotspot=Vector2( 3, 0 )
 
+[global]
+
+font=false
+
+[gui]
+
+theme/custom="res://new_theme.tres"
+
 [importer_defaults]
 
 texture={
