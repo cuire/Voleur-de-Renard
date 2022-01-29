@@ -8,6 +8,7 @@
 
 [node name="Bakery" type="Node2D"]
 script = ExtResource( 6 )
+money_to_steal = 5
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 127, 101 )
