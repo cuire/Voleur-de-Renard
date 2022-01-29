@@ -10,7 +10,6 @@ export var velocity: float = 1.5 * DIRECTION
 
 func _process(delta: float) -> void:
 	current_position += velocity * delta * DIRECTION
-	print(current_position)
 	_move_frame(current_frame, delta)
 	_move_frame(next_frame, delta)
 
