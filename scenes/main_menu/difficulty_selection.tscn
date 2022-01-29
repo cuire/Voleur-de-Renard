@@ -1,0 +1,187 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/main_menu/difficulty_selection.gd" type="Script" id=1]
+
+[node name="DifficultySelection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlReturn" type="Control" parent="."]
+anchor_right = 0.1
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlReturn"]
+margin_right = 100.0
+margin_bottom = 100.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 25
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonReturn" type="Button" parent="ControlReturn/MarginContainer"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 75.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 50, 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.1
+anchor_top = 0.05
+anchor_right = 0.9
+anchor_bottom = 0.95
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlEasy" type="Control" parent="Control"]
+anchor_right = 0.5
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ControlEasy"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/ControlEasy/VBoxContainer"]
+margin_top = 86.0
+margin_right = 409.0
+margin_bottom = 386.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ControlEasy/VBoxContainer/CenterContainer"]
+margin_left = 54.0
+margin_right = 354.0
+margin_bottom = 300.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 25
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 25
+
+[node name="ButtonEasy" type="Button" parent="Control/ControlEasy/VBoxContainer/CenterContainer/MarginContainer"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 275.0
+margin_bottom = 275.0
+rect_min_size = Vector2( 250, 250 )
+
+[node name="CenterContainer2" type="CenterContainer" parent="Control/ControlEasy/VBoxContainer"]
+margin_top = 390.0
+margin_right = 409.0
+margin_bottom = 454.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ControlEasy/VBoxContainer/CenterContainer2"]
+margin_left = 165.0
+margin_right = 243.0
+margin_bottom = 64.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 25
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 25
+
+[node name="LabelEasy" type="Label" parent="Control/ControlEasy/VBoxContainer/CenterContainer2/MarginContainer"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 53.0
+margin_bottom = 39.0
+mouse_filter = 0
+text = "Easy"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlMedium" type="Control" parent="Control"]
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ControlMedium"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/ControlMedium/VBoxContainer"]
+margin_top = 86.0
+margin_right = 409.0
+margin_bottom = 386.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ControlMedium/VBoxContainer/CenterContainer"]
+margin_left = 54.0
+margin_right = 354.0
+margin_bottom = 300.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 25
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 25
+
+[node name="ButtonMedium" type="Button" parent="Control/ControlMedium/VBoxContainer/CenterContainer/MarginContainer"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 275.0
+margin_bottom = 275.0
+rect_min_size = Vector2( 250, 250 )
+
+[node name="CenterContainer2" type="CenterContainer" parent="Control/ControlMedium/VBoxContainer"]
+margin_top = 390.0
+margin_right = 409.0
+margin_bottom = 454.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ControlMedium/VBoxContainer/CenterContainer2"]
+margin_left = 153.0
+margin_right = 256.0
+margin_bottom = 64.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 25
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 25
+
+[node name="LabelMedium" type="Label" parent="Control/ControlMedium/VBoxContainer/CenterContainer2/MarginContainer"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 78.0
+margin_bottom = 39.0
+mouse_filter = 0
+text = "Medium"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="ControlReturn/MarginContainer/ButtonReturn" to="." method="_on_ButtonReturn_pressed"]
+[connection signal="pressed" from="Control/ControlEasy/VBoxContainer/CenterContainer/MarginContainer/ButtonEasy" to="." method="_on_ButtonEasy_pressed"]
+[connection signal="gui_input" from="Control/ControlEasy/VBoxContainer/CenterContainer2/MarginContainer/LabelEasy" to="." method="_on_LabelEasy_gui_input"]
+[connection signal="pressed" from="Control/ControlMedium/VBoxContainer/CenterContainer/MarginContainer/ButtonMedium" to="." method="_on_ButtonMedium_pressed"]
+[connection signal="gui_input" from="Control/ControlMedium/VBoxContainer/CenterContainer2/MarginContainer/LabelMedium" to="." method="_on_LabelMedium_gui_input"]
