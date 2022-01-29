@@ -34,7 +34,7 @@ func add_obstacle(frame: Node2D, obstacle: Minigame):
 	frame.add_child(obstacle)
 
 func _ready():
-	var _money_status = prince.connect("signal_lost_money",counter,"_update_counter")
+	var _money_status = counter.connect("signal_lost_money",prince,"_update_counter")
 	counter._settext(prince._money)
 	
 func _update_counter():
