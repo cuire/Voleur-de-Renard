@@ -1,5 +1,6 @@
 extends Node2D
 
+onready var popup = $Popup
 onready var current_frame = $CurrentFrame
 onready var next_frame = $NextFrame
 onready var prince = $Prince
@@ -41,12 +42,20 @@ func _ready():
 	counter._settext(prince._money)
 	if Global.current_difficulty:
 		timer.set_wait_time(Global.TIME_TO_STEAL)
-		#timer.set_wait_time(1)
 		timer.start()
 	
 func _update_counter():
 	counter._settext(prince._money)
 	
 func _on_Timer_timeout():
-	timer.stop()
+	_show_popup(false)
 	print("timeout")
+	
+func _show_popup(condition):
+	timer.stop()
+	Global.won_last_game = condition
+	var _await_popup = popup.connect("popup_finished", self, "_end_game")
+	popup._play()
+	
+func _end_game():
+	get_tree().change_scene("res://scenes/briefing_scenes/briefing_end.tscn")

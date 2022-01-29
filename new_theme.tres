@@ -1,8 +1,9 @@
-[gd_resource type="Theme" load_steps=6 format=2]
+[gd_resource type="Theme" load_steps=8 format=2]
 
 [ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/assets/Button.png" type="Texture" id=2]
 [ext_resource path="res://scenes/assets/Button_hovered.png" type="Texture" id=3]
+[ext_resource path="res://scenes/assets/Button_pressed.png" type="Texture" id=4]
 
 [sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 3 )
@@ -10,6 +11,10 @@ region_rect = Rect2( 0, 0, 523, 128 )
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 523, 128 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 523, 128 )
 
 [resource]
@@ -24,7 +29,7 @@ Button/styles/disabled = null
 Button/styles/focus = null
 Button/styles/hover = SubResource( 2 )
 Button/styles/normal = SubResource( 1 )
-Button/styles/pressed = null
+Button/styles/pressed = SubResource( 3 )
 Label/colors/font_color = Color( 1, 1, 1, 1 )
 Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
 Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/main_menu/difficulty_selection.gd" type="Script" id=1]
 [ext_resource path="res://new_theme.tres" type="Theme" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://scenes/assets/Button_exit_hovered.png" type="Texture" id=7]
 [ext_resource path="res://scenes/assets/Button_child_1_hovered.png" type="Texture" id=8]
 [ext_resource path="res://scenes/assets/Button_child_2_hovered.png" type="Texture" id=9]
+[ext_resource path="res://scenes/assets/Button_exit_pressed.png" type="Texture" id=10]
+[ext_resource path="res://scenes/assets/Button_child_2_pressed.png" type="Texture" id=11]
+[ext_resource path="res://scenes/assets/Button_child_1_pressed.png" type="Texture" id=12]
+[ext_resource path="res://scenes/gui/fader.tscn" type="PackedScene" id=13]
 
 [node name="DifficultySelection" type="Control"]
 anchor_right = 1.0
@@ -53,6 +57,7 @@ margin_right = 95.0
 margin_bottom = 95.0
 rect_min_size = Vector2( 70, 70 )
 texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 10 )
 texture_hover = ExtResource( 7 )
 expand = true
 
@@ -101,6 +106,7 @@ margin_right = 275.0
 margin_bottom = 275.0
 rect_min_size = Vector2( 250, 250 )
 texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 12 )
 texture_hover = ExtResource( 8 )
 expand = true
 
@@ -168,6 +174,7 @@ margin_right = 275.0
 margin_bottom = 275.0
 rect_min_size = Vector2( 250, 250 )
 texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 9 )
 expand = true
 
@@ -196,6 +203,8 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Fader" parent="." instance=ExtResource( 13 )]
 
 [connection signal="pressed" from="ControlReturn/MarginContainer/ButtonReturn" to="." method="_on_ButtonReturn_pressed"]
 [connection signal="pressed" from="Control/ControlEasy/VBoxContainer/CenterContainer/MarginContainer/ButtonEasy" to="." method="_on_ButtonEasy_pressed"]
