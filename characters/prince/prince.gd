@@ -10,4 +10,5 @@ func lost_money(amount: int):
 	emit_signal("signal_lost_money")
 
 func _on_Steal_Money(amount: int, _sender):
-	lost_money(amount)
+	if position.x < _sender.global_position.x:
+		lost_money(amount)
