@@ -118,7 +118,6 @@ margin_bottom = 85.0
 rect_min_size = Vector2( 50, 50 )
 
 [node name="Fader" parent="." instance=ExtResource( 4 )]
-visible = false
 
 [connection signal="pressed" from="VBoxContainer/ButtonNewGame" to="." method="_on_ButtonNewGame_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_ButtonExit_pressed"]
