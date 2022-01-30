@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://minigames/assets/vending_machine_body.png" type="Texture" id=1]
 [ext_resource path="res://minigames/pull_the_handle/handle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://minigames/pull_the_handle/area2d.gd" type="Script" id=3]
+[ext_resource path="res://minigames/pull_the_handle/vending_machine.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 62, 10 )
 
 [node name="VendingMachine" type="Node2D"]
+script = ExtResource( 4 )
+money_to_steal = 3
 
 [node name="VendingMachineBody" type="Sprite" parent="."]
 position = Vector2( -1, -59 )
