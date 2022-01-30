@@ -6,13 +6,13 @@ onready var next_frame = $NextFrame
 onready var prince = $Prince
 onready var counter = $Control/MoneyCounter
 onready var counter_time = $Control/MoneyCounter2
-onready var viewport_size: float = get_viewport().size.x
 var current_position: float = 0
 var new_frame
 onready var timer = $Timer
 onready var timer_counter = $TimerCounter
 var time_left
 
+const FRAME_SIZE: float = 1024.0
 onready var frame_1 = preload("res://scenes/main_location/frames/frame_1.tscn")
 
 onready var bakery = preload("res://minigames/bakery/bakery.tscn")
@@ -23,7 +23,7 @@ onready var obstacles = [bakery, goose, vending_machine]
 const DIRECTION: int = -1
 export var velocity: float = 1.5 * DIRECTION
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	new_frame = populate_frame(frame_1.instance())
 	current_position += velocity * delta * DIRECTION
 	_move_frame(new_frame, delta)
@@ -34,18 +34,18 @@ func _move_frame(next_frame_to_render: Node2D, delta) -> void:
 	current_frame.position.x += velocity * delta
 	next_frame.position.x += velocity * delta
 	# Try to reposition the frame
-	if viewport_size * DIRECTION > current_frame.position.x:
+	if FRAME_SIZE * DIRECTION > current_frame.position.x:
 		remove_child(current_frame)
 		add_child(next_frame_to_render)
 		move_child(next_frame_to_render, 1)
 		current_frame = next_frame
 		next_frame = next_frame_to_render
-		next_frame.position.x = viewport_size
+		next_frame.position.x = FRAME_SIZE
 
 func add_obstacle(frame: Node2D, obstacle: Minigame, region: int):
-	obstacle.position = Vector2(randi()%300*region+150*region, randi()%200*region+250)
+	obstacle.position = Vector2(randi()%220*region+150*region, randi()%400+250)
 	var _status = obstacle.connect("steal_money", prince, "_on_Steal_Money")
-	frame.add_child(obstacle)
+	frame.get_node("YSort").add_child(obstacle)
 
 func populate_frame(frame: Node2D):
 	var obstacle: Minigame

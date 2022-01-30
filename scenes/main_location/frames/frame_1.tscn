@@ -6,11 +6,11 @@
 [node name="CurrentFrame" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
-scale = Vector2( 0.681304, 0.605714 )
+scale = Vector2( 0.685296, 0.608571 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 1503.79, 350.969 )
+region_rect = Rect2( 0, 0, 1557.5, 350.969 )
 
 [node name="RoadTile" type="Sprite" parent="."]
 position = Vector2( 1, 213 )
@@ -18,4 +18,6 @@ scale = Vector2( 0.565434, 0.590909 )
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, -115.684, 1814.43, 663.093 )
+region_rect = Rect2( 0, -115.684, 1889, 663.093 )
+
+[node name="YSort" type="YSort" parent="."]

@@ -5,7 +5,7 @@ var current_difficulty = true
 # false == easy
 # true == medium
 
-var TIME_TO_STEAL = 5
+var TIME_TO_STEAL = 60
 var won_last_game = false
 
 
