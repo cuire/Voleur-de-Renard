@@ -5,11 +5,12 @@ extends Control
 # var a = 2
 # var b = "text"
 export(String) var text
+export(Texture) var icon
 
-
+onready var image_icon = $Background/CenterContainer2/Coin
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	image_icon.texture = icon
 
 func _settext(txt):
 	text = txt

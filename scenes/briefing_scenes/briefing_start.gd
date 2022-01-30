@@ -1,16 +1,36 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var fader = $Fader
+onready var light = $Light2D
+onready var anim_player = $AnimationPlayer
 
-onready var globals = get_node("res://global.gd")
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	print(Global.current_difficulty)
+	light.visible = false
+	fader.connect("faded_out",self,"start_scrolling")
+	fader.fade_out()
+	
+	#print(Global.current_difficulty)
+
+func start_scrolling():
+	light.visible = true
+	anim_player.play("scroll_brief_text")
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_Background_gui_input(event):
+	if (event is InputEventMouseButton && event.pressed && event.button_index == 1):
+		anim_player.playback_speed = 10.0
+	else:
+		anim_player.playback_speed = 1.0
+
+
+func _on_ButtonStart_pressed():
+	fader.connect("faded_in",self,"start_game")
+	light.visible = false
+	fader.fade_in()
+	GlobalAudioStreamPlayer.stop_music()
+func start_game():
+	get_tree().change_scene("res://scenes/main_location/kingdom.tscn")

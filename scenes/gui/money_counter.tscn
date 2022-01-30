@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/gui/money_counter.gd" type="Script" id=1]
 [ext_resource path="res://fonts/COOPBL.TTF" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/assets/Button.png" type="Texture" id=3]
+[ext_resource path="res://scenes/assets/Coin.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -21,7 +22,7 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="."]
-margin_right = 150.0
+margin_right = 138.0
 margin_bottom = 58.0
 texture = ExtResource( 3 )
 expand = true
@@ -31,16 +32,16 @@ __meta__ = {
 
 [node name="CenterContainer" type="CenterContainer" parent="Background"]
 anchor_left = 0.5
-anchor_right = 1.0
+anchor_right = 0.9
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Text" type="Label" parent="Background/CenterContainer"]
-margin_left = 20.0
+margin_left = 10.0
 margin_top = 22.0
-margin_right = 55.0
+margin_right = 45.0
 margin_bottom = 36.0
 custom_fonts/font = SubResource( 1 )
 text = "100"
@@ -49,14 +50,18 @@ __meta__ = {
 }
 
 [node name="CenterContainer2" type="CenterContainer" parent="Background"]
+anchor_left = 0.1
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.9
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Coin" type="TextureRect" parent="Background/CenterContainer2"]
-margin_left = 37.0
-margin_top = 29.0
-margin_right = 37.0
-margin_bottom = 29.0
+margin_left = 7.0
+margin_top = 6.0
+margin_right = 47.0
+margin_bottom = 46.0
+rect_min_size = Vector2( 40, 40 )
+texture = ExtResource( 4 )
+expand = true

@@ -1,10 +1,41 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://new_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/assets/Menu-3.png" type="Texture" id=2]
 [ext_resource path="res://scenes/briefing_scenes/briefing_start.gd" type="Script" id=3]
+[ext_resource path="res://scenes/assets/briefing_mask_white.png" type="Texture" id=4]
+[ext_resource path="res://scenes/gui/fader.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "scroll_brief_text"
+length = 52.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/Control/CenterContainer:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 49.8, 50.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -5.712, 800 ), Vector2( -5.712, 350 ), Vector2( -5.712, -1430.19 ), Vector2( -5.712, -2430.2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background/Control/CenterContainer2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 49.5, 50.9 ),
+"transitions": PoolRealArray( 1, 0.164939, 4 ),
+"update": 0,
+"values": [ Vector2( 0, 500 ), Vector2( 0, 500 ), Vector2( 0, 0 ) ]
+}
 
 [node name="Briefing" type="Control"]
+light_mask = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
@@ -14,6 +45,7 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="."]
+light_mask = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
@@ -27,6 +59,7 @@ anchor_left = 0.113
 anchor_top = 0.204
 anchor_right = 0.886
 anchor_bottom = 0.799
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -34,6 +67,11 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="Background/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -5.712
+margin_top = 800.0
+margin_right = -5.26398
+margin_bottom = 1897.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -41,41 +79,48 @@ __meta__ = {
 [node name="Label" type="Label" parent="Background/Control/CenterContainer"]
 margin_left = 83.0
 margin_right = 708.0
-margin_bottom = 1237.0
+margin_bottom = 1454.0
 text = "Весь свет надвое поделён:
 Ты иль богат, иль беден в нём.
 Бедняк здесь, чтоб богатым стать,
 Богатых должен обирать.
 
-Я сам когда-то спал в шелках,
+
+Я сам когда то спал в шелках,
 Жил во дворце, ел на балах,
 Но тосковал, хотел я воли.
 И вот я вор, и ты со мною.
+
 
 А по дорожке принц идёт:
 Монеты есть и нет забот.
 Но он так мил. Я не могу
 Его наивность обмануть. 
 
+
 Пусть лучше он потратит сам
 Всё до копейки, ну а там
 Вернётся с миром в свой дворец.
 Где ждёт его златой венец. 
+
 
 Одну монетку он отдаст
 Гадалке Пифии. Как раз
 Она о принце знает всё.
 Но нужно разбудить её.
 
+
 Монеток пять пусть он потратит,
 В моём торговом автомате.
 Потянешь за рычаг ― отрада:
 Ему вкусняшка, мне награда.
 
+
 На выпечку монеток десять
 Потратит принц, если заметит
 Со старой вывеской ларёк ―
 Часть букв там задом наперёд.
+
 
 Принц хочет во дворец уйти.
 Расставим на его пути
@@ -83,3 +128,42 @@ text = "Весь свет надвое поделён:
 Богатый, выворачивай карманы!
 "
 align = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="Background/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 500.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonStart" type="Button" parent="Background/Control/CenterContainer2"]
+margin_left = 245.0
+margin_top = 141.0
+margin_right = 545.0
+margin_bottom = 216.0
+rect_min_size = Vector2( 300, 75 )
+text = "Начать игру"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fader" parent="." instance=ExtResource( 5 )]
+light_mask = 0
+
+[node name="Light2D" type="Light2D" parent="."]
+light_mask = 0
+position = Vector2( 511.5, 303 )
+scale = Vector2( 0.697049, 0.63583 )
+texture = ExtResource( 4 )
+texture_scale = 0.75
+mode = 3
+range_item_cull_mask = 513
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/scroll_brief_text = SubResource( 1 )
+
+[connection signal="gui_input" from="Background" to="." method="_on_Background_gui_input"]
+[connection signal="pressed" from="Background/Control/CenterContainer2/ButtonStart" to="." method="_on_ButtonStart_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
