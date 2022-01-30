@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://characters/prince/prince.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/gui/fader.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/main_location/kingdom.gd" type="Script" id=4]
 [ext_resource path="res://scenes/main_location/frames/frame_1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/gui/money_counter.tscn" type="PackedScene" id=7]
@@ -51,6 +52,10 @@ anchor_bottom = 0.5
 margin_right = 1023.0
 margin_bottom = 602.0
 rect_min_size = Vector2( 192, 108 )
+
+[node name="Fader" parent="." instance=ExtResource( 2 )]
+margin_right = 1200.0
+margin_bottom = 800.0
 
 [node name="Timer" type="Timer" parent="."]
 

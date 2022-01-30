@@ -10,7 +10,7 @@ extents = Vector2( 62, 10 )
 
 [node name="VendingMachine" type="Node2D"]
 script = ExtResource( 4 )
-money_to_steal = 3
+money_to_steal = 5
 
 [node name="VendingMachineBody" type="Sprite" parent="."]
 position = Vector2( -1, -59 )

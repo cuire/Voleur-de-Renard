@@ -1,5 +1,6 @@
 extends Node2D
 
+onready var fader = $Fader
 onready var popup = $Popup
 onready var current_frame = $CurrentFrame
 onready var next_frame = $NextFrame
@@ -71,6 +72,7 @@ func get_random_minigame():
 	# return obstacles[randi() % obstacles.size()].instance()
 
 func _ready():
+	fader.fade_out()
 	GlobalAudioStreamPlayer.play_game_music()
 	var _money_status = prince.connect("signal_lost_money", self, "_update_counter")
 	counter._settext(prince._money)
@@ -107,11 +109,15 @@ func _show_popup(condition):
 	timer_counter.stop()
 	timer.stop()
 	Global.won_last_game = condition
-	var _await_popup = popup.connect("popup_finished", self, "_end_game")
+	var _await_popup = popup.connect("popup_finished", self, "_fade_in")
 	popup._play()
 	#get_tree().paused = true
 	
-	
+func _fade_in():
+	fader.connect("faded_in",self,"_end_game")
+	GlobalAudioStreamPlayer.stop_music()
+	fader.fade_in()
+
 func _end_game():
 	GlobalAudioStreamPlayer.stop_music()
 	get_tree().change_scene("res://scenes/briefing_scenes/briefing_end.tscn")

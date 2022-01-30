@@ -1,6 +1,6 @@
 extends Node2D
 
-var _money = 30
+var _money = 100
 
 signal signal_lost_money
 
