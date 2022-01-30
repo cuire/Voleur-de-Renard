@@ -7,20 +7,20 @@ GGJ 2022 project
 ### Prince script and scene
 - [x] movement and collisions
 - [x] scene setup
-- [ ] score counter
+- [x] score counter
 - [ ] animations
 
 ### Kingdom scene
 - [x] repeatable road tile
 - [x] background
-- [ ] finish point
+- [x] finish point
 - [ ] Tilemap FG objects
 
 ### User abilities
 
-- [ ] vending machine
-- [ ] bakery
-- [ ] easy click obstacle
+- [x] vending machine
+- [x] bakery
+- [x] easy click obstacle
 
 ### Main menu
 - [x] menu scenes
@@ -29,6 +29,6 @@ GGJ 2022 project
 
 
 ### Polish
-- [ ] main meny music and art
-- [ ] kingdom music and art
+- [x] main meny music and art
+- [x] kingdom music and art
 - [ ] click noises
