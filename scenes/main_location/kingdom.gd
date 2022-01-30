@@ -9,18 +9,20 @@ var current_position: float = 0
 var new_frame
 onready var timer = get_node("Timer")
 
-var frame_1 = preload("res://scenes/main_location/frames/frame_1.tscn")
-var bakery = preload("res://minigames/bakery/bakery.tscn")
+onready var frame_1 = preload("res://scenes/main_location/frames/frame_1.tscn")
+
+onready var bakery = preload("res://minigames/bakery/bakery.tscn")
+onready var goose = preload("res://minigames/goose/goose.tscn")
+onready var vending_machine = preload("res://minigames/pull_the_handle/vending_machine.tscn")
+onready var obstacles = [bakery, goose, vending_machine]
 
 const DIRECTION: int = -1
 export var velocity: float = 1.5 * DIRECTION
 
 func _process(delta: float) -> void:
-	new_frame = frame_1.instance()
+	new_frame = populate_frame(frame_1.instance())
 	current_position += velocity * delta * DIRECTION
 	_move_frame(new_frame, delta)
-	if Input.is_action_pressed("ui_right"):
-		add_obstacle(next_frame, bakery.instance())
 
 # Function to move frame
 func _move_frame(next_frame_to_render: Node2D, delta) -> void:
@@ -31,15 +33,38 @@ func _move_frame(next_frame_to_render: Node2D, delta) -> void:
 	if viewport_size * DIRECTION > current_frame.position.x:
 		remove_child(current_frame)
 		add_child(next_frame_to_render)
-		move_child(next_frame_to_render, 0)
+		move_child(next_frame_to_render, 1)
 		current_frame = next_frame
 		next_frame = next_frame_to_render
 		next_frame.position.x = viewport_size
 
-func add_obstacle(frame: Node2D, obstacle: Minigame):
-	obstacle.position = Vector2(randi()%900+100, randi()%600+250)
+func add_obstacle(frame: Node2D, obstacle: Minigame, region: int):
+	obstacle.position = Vector2(randi()%300*region+150*region, randi()%200*region+250)
 	var _status = obstacle.connect("steal_money", prince, "_on_Steal_Money")
 	frame.add_child(obstacle)
+
+func populate_frame(frame: Node2D):
+	var obstacle: Minigame
+
+	for _i in range(3):
+		obstacle = get_random_minigame().instance()
+		add_obstacle(frame, obstacle, _i+1)
+	
+	return frame
+	
+
+func get_random_minigame():
+	var index = randi() % obstacles.size()
+
+	if index == 0:
+		return bakery
+	elif index == 1:
+		return goose
+	elif index == 2:
+		return vending_machine
+
+	return goose
+	# return obstacles[randi() % obstacles.size()].instance()
 
 func _ready():
 	var _money_status = prince.connect("signal_lost_money", self, "_update_counter")
@@ -48,7 +73,9 @@ func _ready():
 		timer.set_wait_time(Global.TIME_TO_STEAL)
 		#timer.set_wait_time(1)
 		timer.start()
-	
+	current_frame = populate_frame(current_frame)
+	next_frame = populate_frame(next_frame)
+
 func _update_counter():
 	counter._settext(prince._money)
 	
