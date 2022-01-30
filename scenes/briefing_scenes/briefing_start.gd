@@ -34,3 +34,7 @@ func _on_ButtonStart_pressed():
 	GlobalAudioStreamPlayer.stop_music()
 func start_game():
 	get_tree().change_scene("res://scenes/main_location/kingdom.tscn")
+
+
+func _on_Button_pressed():
+	anim_player.playback_speed = 100.0

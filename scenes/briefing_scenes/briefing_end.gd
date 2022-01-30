@@ -51,3 +51,7 @@ func _on_ButtonEnd_pressed():
 	
 func return_to_menu():
 	get_tree().change_scene("res://scenes/main_menu/menu.tscn")
+
+
+func _on_Button_pressed():
+	anim_player.playback_speed = 100.0
