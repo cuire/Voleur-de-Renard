@@ -1,6 +1,10 @@
 extends Control
 
 onready var fader = $Fader
+onready var button_sound = $Control/CenterContainer/ButtonSound
+onready var slider_sound = $VBoxContainer/HBoxContainer/CenterContainer2/HSlider
+var is_sound_toggled = false
+
 func _ready():
 	if GlobalAudioStreamPlayer.is_playing != "menu":
 		GlobalAudioStreamPlayer.play_menu_music()
@@ -23,4 +27,18 @@ func _on_ButtonExit_pressed():
 
 
 func _on_HSlider_value_changed(value):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),value)
+	if not is_sound_toggled:
+		var setval = value
+		if setval <= -29:
+			setval = -80
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),setval)
+
+
+
+func _on_ButtonSound_toggled(button_pressed):
+	if button_pressed:
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),-80)
+		is_sound_toggled = true
+	else:
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),slider_sound.value)
+		is_sound_toggled = false
