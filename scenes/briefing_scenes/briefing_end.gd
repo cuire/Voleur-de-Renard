@@ -20,6 +20,8 @@ onready var string_lose = """Свои богатства принц унёс,
 """
 
 func _ready():
+	if GlobalAudioStreamPlayer.is_playing != "menu":
+		GlobalAudioStreamPlayer.play_menu_music()
 	light.visible = false
 	fader.connect("faded_out",self,"start_scrolling")
 	fader.fade_out()

@@ -43,6 +43,7 @@ func add_obstacle(frame: Node2D, obstacle: Minigame):
 	frame.add_child(obstacle)
 
 func _ready():
+	GlobalAudioStreamPlayer.play_game_music()
 	var _money_status = prince.connect("signal_lost_money", self, "_update_counter")
 	counter._settext(prince._money)
 	if Global.current_difficulty:
@@ -62,5 +63,7 @@ func _show_popup(condition):
 	var _await_popup = popup.connect("popup_finished", self, "_end_game")
 	popup._play()
 	
+	
 func _end_game():
+	GlobalAudioStreamPlayer.stop_music()
 	get_tree().change_scene("res://scenes/briefing_scenes/briefing_end.tscn")

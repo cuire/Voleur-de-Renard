@@ -36,18 +36,53 @@ __meta__ = {
 }
 
 [node name="ButtonNewGame" type="Button" parent="VBoxContainer"]
-margin_top = 95.0
+margin_top = 47.0
 margin_right = 306.0
-margin_bottom = 170.0
+margin_bottom = 122.0
 rect_min_size = Vector2( 0, 75 )
-text = "Начать игру"
+text = "Новая игра"
 
 [node name="ButtonExit" type="Button" parent="VBoxContainer"]
-margin_top = 190.0
+margin_top = 142.0
 margin_right = 306.0
-margin_bottom = 265.0
+margin_bottom = 217.0
 rect_min_size = Vector2( 0, 75 )
 text = "Выход"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 237.0
+margin_right = 306.0
+margin_bottom = 312.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 38.0
+margin_right = 113.0
+margin_bottom = 75.0
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/CenterContainer"]
+margin_right = 75.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 117.0
+margin_right = 267.0
+margin_bottom = 75.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/HBoxContainer/CenterContainer2"]
+margin_top = 25.0
+margin_right = 150.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 150, 25 )
+min_value = -40.0
+max_value = 10.0
 
 [node name="Control" type="Control" parent="."]
 anchor_left = 0.9
@@ -75,4 +110,5 @@ rect_min_size = Vector2( 50, 50 )
 
 [connection signal="pressed" from="VBoxContainer/ButtonNewGame" to="." method="_on_ButtonNewGame_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_ButtonExit_pressed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/CenterContainer2/HSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="pressed" from="Control/CenterContainer/ButtonSound" to="." method="_on_ButtonSound_pressed"]

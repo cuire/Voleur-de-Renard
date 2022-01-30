@@ -31,5 +31,6 @@ func _on_ButtonStart_pressed():
 	fader.connect("faded_in",self,"start_game")
 	light.visible = false
 	fader.fade_in()
+	GlobalAudioStreamPlayer.stop_music()
 func start_game():
 	get_tree().change_scene("res://scenes/main_location/kingdom.tscn")
